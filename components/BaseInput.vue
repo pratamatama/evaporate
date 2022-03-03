@@ -17,6 +17,7 @@
 
       <button
         v-if="type === 'password'"
+        tabindex="-1"
         type="button"
         class="absolute inset-y-0 right-0 text-gray-500 px-4"
         @click.prevent="peekPassword"
