@@ -73,10 +73,7 @@ export default {
       this.busy = true
 
       try {
-        const response = await this.$axios.post(
-          '/laravel/api/register',
-          this.form
-        )
+        const response = await this.$axios.post('/api/register', this.form)
 
         if (response) {
           await this.$auth.loginWith('laravelSanctum', {

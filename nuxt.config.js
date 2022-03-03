@@ -51,18 +51,22 @@ export default {
     },
   },
   proxy: {
-    '/laravel': {
+    '/auth': {
       target: 'http://localhost',
-      pathRewrite: { '^/laravel': '/' },
+      pathRewrite: { '^/auth': '/' },
+    },
+    '/api': {
+      target: 'http://localhost/api',
+      pathRewrite: { '^/api': '/' },
     },
   },
   auth: {
     strategies: {
       laravelSanctum: {
         provider: 'laravel/sanctum',
-        url: '/laravel',
+        url: '/auth',
         endpoints: {
-          login: { url: '/laravel/api/login' },
+          login: { url: '/api/login' },
         },
       },
     },
