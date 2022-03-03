@@ -37,8 +37,6 @@ export default {
     '@nuxtjs/axios',
     // https://auth.nuxtjs.org/
     '@nuxtjs/auth-next',
-    // https://github.com/microcipcip/cookie-universal/tree/master/packages/cookie-universal-nuxt
-    'cookie-universal-nuxt',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
