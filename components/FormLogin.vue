@@ -25,8 +25,10 @@
     <BaseCheckbox
       v-model="form.remember"
       :checked="form.remember"
-      label="Remember information"
-    />
+      class="mb-6"
+    >
+      Remember information
+    </BaseCheckbox>
 
     <BaseButton
       :busy="busy"
@@ -37,7 +39,7 @@
       <p class="mr-2">Not a member?</p>
       <NuxtLink
         :to="{ name:'register' }"
-        class="text-blue-600 hover:text-blue-700 transition-colors"
+        class="text-blue-600 hover:text-blue-700 dark:text-blue-500 dark:hover:text-blue-600 transition-colors"
       >Sign up</NuxtLink>
     </div>
   </form>

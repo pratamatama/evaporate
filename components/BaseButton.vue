@@ -2,7 +2,7 @@
   <button
     :type="type"
     :disabled="busy"
-    class="bg-blue-600 shadow-sm hover:bg-blue-700 transition-colors text-white p-3 px-4 rounded-lg text-center"
+    class="bg-blue-600 shadow-sm hover:bg-blue-700 transition-colors duration-300 text-white p-3 px-4 rounded-lg text-center"
   >
     <!-- Loading indicator -->
     <span

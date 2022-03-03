@@ -39,6 +39,36 @@
       :errors="validation_errors"
     />
 
+    <div class="mb-6">
+
+      <BaseCheckbox
+        v-model="form.tos_agreed"
+        :checked="form.tos_agreed"
+      >
+        I accept the
+        <NuxtLink
+          :to="{ name: 'index' }"
+          class="text-blue-600 hover:text-blue-700 dark:text-blue-500 dark:hover:text-blue-600 transition-colors"
+        >
+          Terms of Service
+        </NuxtLink>
+        and the
+        <NuxtLink
+          :to="{ name: 'index' }"
+          class="text-blue-600 hover:text-blue-700 dark:text-blue-500 dark:hover:text-blue-600 transition-colors"
+        >
+          Privacy Policy
+        </NuxtLink>
+      </BaseCheckbox>
+
+      <BaseCheckbox
+        v-model="form.subscribe_newsletter"
+        :checked="form.subscribe_newsletter"
+      >
+        I wish to receive e-mails regarding product updates
+      </BaseCheckbox>
+    </div>
+
     <BaseButton
       :busy="busy"
       class="block w-full mb-8"
@@ -48,7 +78,7 @@
       <p class="mr-2">Already a member?</p>
       <NuxtLink
         :to="{ name:'login' }"
-        class="text-blue-600 hover:text-blue-700 transition-colors"
+        class="text-blue-600 hover:text-blue-700 dark:text-blue-500 dark:hover:text-blue-600 transition-colors"
       >Login</NuxtLink>
     </div>
   </form>
@@ -64,6 +94,8 @@ export default {
         email: '',
         password: '',
         password_confirmation: '',
+        tos_agreed: false,
+        subscribe_newsletter: false,
       },
       validation_errors: null,
     }

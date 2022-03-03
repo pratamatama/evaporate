@@ -7,7 +7,7 @@
 
     <div class="relative">
       <input
-        class="mt-2 pb-3 pt-4 block w-full rounded-lg border-gray-200 focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+        class="mt-2 pb-3 pt-4 block w-full rounded-lg border-gray-200 focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 dark:bg-gray-800 dark:border-gray-800 dark:focus:ring-blue-600"
         :type="inputType"
         :placeholder="placeholder"
         :required="required"
@@ -19,7 +19,7 @@
         v-if="type === 'password'"
         tabindex="-1"
         type="button"
-        class="absolute inset-y-0 right-0 text-gray-500 px-4"
+        class="absolute inset-y-0 right-0 text-gray-500 dark:text-gray-500 px-4"
         @click.prevent="peekPassword"
       >
         <!-- Boxicons: hide -->

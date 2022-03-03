@@ -1,5 +1,5 @@
 <template>
-  <main class="lg:grid lg:grid-cols-2">
+  <main class="lg:grid lg:grid-cols-2 dark:bg-gray-900 dark:text-gray-200">
     <div class="h-screen flex items-center px-20 xl:px-32 2xl:px-52">
       <div class="w-full">
         <div class="mb-12">
@@ -12,7 +12,7 @@
         <FormLogin />
       </div>
     </div>
-    <div class="h-screen bg-gray-200 hidden lg:block"></div>
+    <div class="h-screen bg-gray-200 dark:bg-gray-800 hidden lg:block"></div>
   </main>
 </template>
 

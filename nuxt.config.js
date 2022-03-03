@@ -37,7 +37,16 @@ export default {
     '@nuxtjs/axios',
     // https://auth.nuxtjs.org/
     '@nuxtjs/auth-next',
+    // https://color-mode.nuxtjs.org/
+    '@nuxtjs/color-mode',
   ],
+
+  // https://color-mode.nuxtjs.org/
+  colorMode: {
+    preference: 'system',
+    fallback: 'light',
+    classSuffix: '',
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
