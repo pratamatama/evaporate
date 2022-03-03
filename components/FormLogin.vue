@@ -51,15 +51,24 @@ export default {
       form: {
         email: '',
         password: '',
-        device_name: 'web',
-        remember: true,
+        remember: false,
       },
       validation_errors: null,
     }
   },
   methods: {
-    onSubmit() {
-      alert('NOT IMPLEMENTED')
+    async onSubmit() {
+      this.busy = true
+
+      try {
+        await this.$auth.loginWith('laravelSanctum', { data: this.form })
+      } catch (e) {
+        if (e.response && e.response.status === 422) {
+          this.validation_errors = e.response.data.errors
+        }
+      }
+
+      this.busy = false
     },
   },
 }
