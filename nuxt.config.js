@@ -43,10 +43,14 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: 'http://localhost',
     proxy: true,
     credentials: true,
+    headers: {
+      common: {
+        Accept: 'application/json, text/plain, */*',
+        'X-Requested-With': 'XMLHttpRequest',
+      },
+    },
   },
   proxy: {
     '/laravel': {
@@ -59,6 +63,9 @@ export default {
       laravelSanctum: {
         provider: 'laravel/sanctum',
         url: '/laravel',
+        endpoints: {
+          login: { url: '/laravel/api/login' },
+        },
       },
     },
   },

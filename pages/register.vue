@@ -3,13 +3,13 @@
     <div class="h-screen flex items-center px-20 xl:px-32 2xl:px-52">
       <div class="w-full">
         <div class="mb-12">
-          <h1 class="text-4xl font-medium mb-2">Log in</h1>
-          <p class="text-gray-500">Enter your credentials to access your account.</p>
+          <h1 class="text-4xl font-medium mb-2">Register</h1>
+          <p class="text-gray-500">Enjoy easier account creation, no password needed.</p>
         </div>
 
-        <GoogleSignIn />
+        <GoogleSignIn>Continue with Google</GoogleSignIn>
         <BaseDivider class="my-12">or</BaseDivider>
-        <FormLogin />
+        <FormRegister />
       </div>
     </div>
     <div class="h-screen bg-gray-200 hidden lg:block"></div>
@@ -18,7 +18,7 @@
 
 <script>
 export default {
-  name: 'LoginPage',
+  name: 'RegisterPage',
   auth: 'guest',
 }
 </script>

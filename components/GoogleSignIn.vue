@@ -27,7 +27,9 @@
           />
         </g>
       </svg>
-      <span class="ml-3 pt-1">Login with google</span>
+      <span class="ml-3 pt-1">
+        <slot>Login with Google</slot>
+      </span>
     </span>
   </button>
 </template>
