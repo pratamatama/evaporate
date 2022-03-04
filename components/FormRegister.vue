@@ -70,6 +70,7 @@
     </div>
 
     <BaseButton
+      :disabled="!form.tos_agreed"
       :busy="busy"
       class="block w-full mb-8"
     >Create account</BaseButton>
@@ -102,19 +103,22 @@ export default {
   },
   methods: {
     async onSubmit() {
+      if (!this.form.tos_agreed) {
+        return
+      }
+
       this.busy = true
 
       try {
         const response = await this.$axios.post('/api/register', this.form)
+        if (!response) return
 
-        if (response) {
-          await this.$auth.loginWith('laravelSanctum', {
-            data: {
-              email: this.form.email,
-              password: this.form.password,
-            },
-          })
-        }
+        await this.$auth.loginWith('laravelSanctum', {
+          data: {
+            email: this.form.email,
+            password: this.form.password,
+          },
+        })
       } catch (e) {
         if (e.response && e.response.status === 422) {
           this.validation_errors = e.response.data.errors
