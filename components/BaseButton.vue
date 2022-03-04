@@ -1,8 +1,9 @@
 <template>
   <button
     :type="type"
-    :disabled="busy"
-    class="bg-blue-600 shadow-sm hover:bg-blue-700 transition-colors duration-300 text-white p-3 px-4 rounded-lg text-center"
+    :disabled="isDisabled"
+    class="p-3 px-4 rounded-lg text-center transition-colors duration-300"
+    :class="conditionalClass"
   >
     <!-- Loading indicator -->
     <span
@@ -26,6 +27,20 @@ export default {
     busy: {
       type: Boolean,
       default: false,
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  computed: {
+    isDisabled() {
+      return this.disabled || this.busy
+    },
+    conditionalClass() {
+      return this.isDisabled
+        ? 'bg-gray-200 dark:bg-gray-700 cursor-not-allowed disabled:opacity-50'
+        : 'bg-blue-600 shadow-sm hover:bg-blue-700 text-white'
     },
   },
 }
