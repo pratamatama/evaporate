@@ -110,15 +110,17 @@ export default {
       this.busy = true
 
       try {
+        await this.$axios.get('/auth/sanctum/csrf-cookie')
         const response = await this.$axios.post('/api/register', this.form)
-        if (!response) return
 
-        await this.$auth.loginWith('laravelSanctum', {
-          data: {
-            email: this.form.email,
-            password: this.form.password,
-          },
-        })
+        if (response) {
+          await this.$auth.loginWith('laravelSanctum', {
+            data: {
+              email: this.form.email,
+              password: this.form.password,
+            },
+          })
+        }
       } catch (e) {
         if (e.response && e.response.status === 422) {
           this.validation_errors = e.response.data.errors
