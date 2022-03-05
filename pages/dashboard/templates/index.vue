@@ -1,10 +1,10 @@
 <template>
-  <div>Hello from dashboard</div>
+  <div>Hello from templates</div>
 </template>
 
 <script>
 export default {
-  name: 'DashboardPage',
+  name: 'TemplatesPage',
   layout: 'dashboard',
 }
 </script>
