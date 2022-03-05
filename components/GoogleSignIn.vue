@@ -1,5 +1,8 @@
 <template>
-  <button class="block w-full border border-gray-200 bg-white hover:bg-gray-50 transition-colors duration-300 shadow-sm rounded-lg p-3 px-4 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+  <button
+    class="block w-full border border-gray-200 bg-white hover:bg-gray-50 transition-colors duration-300 shadow-sm rounded-lg p-3 px-4 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
+    @click.prevent="onClick"
+  >
     <span class="flex items-center justify-center">
       <!-- logo: google G -->
       <svg
@@ -33,3 +36,13 @@
     </span>
   </button>
 </template>
+
+<script>
+export default {
+  methods: {
+    onClick() {
+      this.$auth.loginWith('google')
+    },
+  },
+}
+</script>

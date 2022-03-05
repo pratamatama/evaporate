@@ -61,16 +61,25 @@ export default {
   },
   proxy: {
     '/auth': {
-      target: 'http://localhost',
+      target: process.env.API_URL,
       pathRewrite: { '^/auth': '/' },
     },
     '/api': {
-      target: 'http://localhost/api',
+      target: `${process.env.API_URL}/api`,
       pathRewrite: { '^/api': '/' },
     },
   },
   auth: {
     strategies: {
+      google: {
+        clientId: process.env.GOOGLE_CLIENT_ID,
+        codeChallengeMethod: '',
+        responseType: 'code',
+        endpoints: {
+          token: '/api/auth/google/callback',
+          userInfo: '/api/user',
+        },
+      },
       laravelSanctum: {
         provider: 'laravel/sanctum',
         url: '/auth',
