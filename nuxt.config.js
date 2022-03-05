@@ -1,3 +1,5 @@
+const DASHBOARD_URL = '/dashboard'
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -79,12 +81,18 @@ export default {
           token: '/api/auth/google/callback',
           userInfo: '/api/user',
         },
+        redirect: {
+          home: DASHBOARD_URL,
+        },
       },
       laravelSanctum: {
         provider: 'laravel/sanctum',
         url: '/auth',
         endpoints: {
           login: { url: '/api/login' },
+        },
+        redirect: {
+          home: DASHBOARD_URL,
         },
       },
     },
